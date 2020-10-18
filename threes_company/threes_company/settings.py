@@ -75,12 +75,8 @@ WSGI_APPLICATION = 'threes_company.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'ThreesCompany',
-        'USER': 'admin',
-        'PASSWORD': 'Threescompany',
-        'HOST': 'database-1.ctj9qex7vcdc.us-east-2.rds.amazonaws.com',
-        'PORT': '3306',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
 
@@ -122,3 +118,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'root')
+
+
+# make sure to run command `python manage.py collectstatic` after adding to this list
+STATICFILES_DIRS = [
+    # Bootsrap directory
+    os.path.join(BASE_DIR, 'boot'),
+]
