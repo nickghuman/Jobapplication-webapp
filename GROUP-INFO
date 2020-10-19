@@ -2,3 +2,7 @@
 Group Name: 	three's company
 Group Members:	Cole Hochstrate, Nick Ghuman, Waleed Ayyash
 
+# HOW TO RUN SERVER #
+1) get public ip address by running `ifconfig` and copy inet address
+2) select an unused unreserved port, any port above 3000 should be ok to use
+3) run `python manage.py runserver <public ip addr>:<port number>`

@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'job_application.apps.JobApplicationConfig',
 ]
 
 MIDDLEWARE = [
@@ -124,6 +125,6 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'root')
 
 # make sure to run command `python manage.py collectstatic` after adding to this list
 STATICFILES_DIRS = [
-    # Bootsrap directory
+    # Bootstrap directory
     os.path.join(BASE_DIR, 'boot'),
 ]
