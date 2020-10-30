@@ -77,7 +77,7 @@ WSGI_APPLICATION = 'threes_company.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'threescompany',
+        'NAME': 'ThreesCompany',
         'USER': 'admin',
         'PASSWORD': 'Threescompany',
         'HOST': 'database-1.ctj9qex7vcdc.us-east-2.rds.amazonaws.com',
