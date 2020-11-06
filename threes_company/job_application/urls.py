@@ -1,8 +1,8 @@
-from django.conf.urls import url
+from django.urls import path
 from . import views
 
 urlpatterns = [
-    url(r'^$', views.home, name='jobapp-home'),
-    url(r'^jobapp/create/$', views.create_job_application, name='jobapp-create'),
-    url(r'^jobapp/edit/$', views.edit_job_application, name='jobapp-edit'),
+    path(r'^$', views.home, name='jobapp-home'),
+    path(r'^jobapp/create/$', views.create_job_application, name='jobapp-create'),
+    path(r'^jobapp/edit/$', views.edit_job_application, name='jobapp-edit'),
 ]
