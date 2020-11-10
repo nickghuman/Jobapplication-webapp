@@ -1,0 +1,21 @@
+{% extends "job_application/base.html" %}
+{% block content %}
+  <h3>Job App View Page</h3>
+  <br>
+  <div class="card-deck">
+    {% for job_app in job_apps %}
+    <div class="card">
+      {% load static %}
+      <img class="card-img-top" src="{% static 'job_application/job_app_card.jpg' %}" alt="Job Application">
+      <div class="card-body">
+        <h5 class="card-title">{{job_app.submitted_by}}</h5>
+        <p class="card-text">Created at: {{job_app.date_posted}}</p>
+        <a href="{% url 'jobapp-edit' %}" class="btn btn-primary">Edit</a>
+      </div>
+      <div class="card-footer">
+        <small class="text-muted">Something Here?</small>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+{% endblock content %}

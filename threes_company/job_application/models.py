@@ -12,3 +12,4 @@ class JobApplication(models.Model):
     education = models.TextField()
     skills = models.TextField()
     work_experience = models.TextField()
+
