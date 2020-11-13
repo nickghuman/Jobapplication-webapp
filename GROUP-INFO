@@ -6,3 +6,9 @@ Group Members:	Cole Hochstrate, Nick Ghuman, Waleed Ayyash
 1) get public ip address by running `ifconfig` and copy inet address
 2) select an unused unreserved port, any port above 3000 should be ok to use
 3) run `python manage.py runserver <public ip addr>:<port number>`
+
+# HOW TO RUN SERVER EC2 #
+1) get public IPV4 addr from aws ec2 dashboard
+2) make sure ib tcp rule is created for the port you wish to run server on
+3) `python manage.py runserver 0.0.0.0:<port number>`
+4) use url: <IPV4 addr from aws ec2 dash>:<port number>

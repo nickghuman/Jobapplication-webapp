@@ -32,6 +32,7 @@ ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = [
     'job_application.apps.JobApplicationConfig',
+    'crispy_forms',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -132,3 +133,5 @@ STATICFILES_DIRS = [
     # Bootstrap directory
     os.path.join(BASE_DIR, 'boot'),
 ]
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
