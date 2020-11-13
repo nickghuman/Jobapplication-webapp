@@ -15,8 +15,9 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
-
+#from register import views as v
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    #url("register/", v.register, name = "register"),
     url(r'', include('job_application.urls')),
 ]
