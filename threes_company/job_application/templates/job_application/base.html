@@ -23,14 +23,12 @@
           <li class="nav-item">
             <a class="nav-link" href="#">Profile</a>
           </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Your Applications
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="{% url 'jobapp-create' %}">Create</a>
-              <a class="dropdown-item" href="{% url 'jobapp-view' %}">Manage</a>
-            </div>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'jobapp-view' %}">Your Applications</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'jobapp-help' %}">Interview Help</a>
+          </li>
         </ul>
       </div>
     </nav>
