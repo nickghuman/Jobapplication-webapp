@@ -5,6 +5,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from .forms import JobApplicationForm
 from .models import JobApplication
+import register
 
 def home(request):
     return render(request, 'job_application/home.html')
