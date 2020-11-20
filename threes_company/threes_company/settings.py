@@ -140,6 +140,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'root')
 STATICFILES_DIRS = [
     # Bootstrap directory
     os.path.join(BASE_DIR, 'boot'),
+    os.path.join(BASE_DIR, 'images'),
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'

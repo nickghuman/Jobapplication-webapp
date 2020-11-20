@@ -7,9 +7,6 @@ from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from .forms import UserRegisterForm
 from job_application import views
-# Create your views here.
-
-
 
 def home(request):
     return render(request, 'jobapp-home')
