@@ -1,32 +1,30 @@
 {% extends "job_application/newbase.html" %}
 {% load crispy_forms_tags %}
 {% block content %}
-
-<body>
-    <h2 style="color:rgba(0, 0, 0, 0.5);">Apply For Jobs and Do Interview Preparations With One Login</h2>
-  </body>
-<div class="container">
-    <div class="row">
-      <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
-        <div class="card card-signin my-5">
-          <div class="card-body">
-        <form method="POST">
-            {% csrf_token %}
-            <fieldset class="form-group">
-                <legend class="border-bottom mb-4">Log In</legend>
-                {{ form|crispy }}
-            </fieldset>
-            <div class="form-group">
-                <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Sign in</button>
+  <div class="container">
+      <div class="row">
+        <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+          <div class="card card-signin my-5">
+            <div class="card-body">
+              <form method="POST">
+                  {% csrf_token %}
+                  <fieldset class="form-group">
+                      <legend class="border-bottom mb-4">Log In</legend>
+                      {{ form|crispy }}
+                  </fieldset>
+                  <div class="form-group">
+                      <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Sign in</button>
+                  </div>
+              </form>
+              <div class="border-top pt-3">
+                <small class="text-muted">
+                    Need An Account? <a class="ml-2" href="{% url 'register' %}">Sign Up Here</a>
+                </small>
+              </div>
             </div>
-        </form>
-        <div class="border-top pt-3">
-            <small class="text-muted">
-                Need An Account? <a class="ml-2" href="{% url 'register' %}">Sign Up Here</a>
-            </small>
+          </div>
         </div>
+      </div>
     </div>
-    <body>
-    <h3 style="color:rgba(118, 167, 27, 0.5);">One Website Many Solutions</h3>
-    </body>
-    {% endblock content %}
+  </div>
+{% endblock content %}
