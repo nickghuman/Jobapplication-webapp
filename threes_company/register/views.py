@@ -35,4 +35,4 @@ def register(request):
 
 @login_required
 def profile(request):
-    return render(request, 'jobapp-home')
+    return render(request, 'register/profile.html')

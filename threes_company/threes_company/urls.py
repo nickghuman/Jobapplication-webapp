@@ -21,3 +21,4 @@ urlpatterns = [
     path('', include('job_application.urls')),
     path('', include('register.urls')),
 ]
+
