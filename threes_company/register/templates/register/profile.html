@@ -1,9 +1,29 @@
+{% extends "job_application/base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+
+
 <div class ="content-selection">
     <div class="media">
-        <img class="rounded-circle account-img" src="{{ user.profile.image.url }}">
-        <div class="media-body">
-            <h2 class="account-heading">{{ user.username }}</h2>
-            <p class="text-secondary">{{ user.email }}</p>
-        </div>
+            {% if user.profile.image %}
+                <img class="rounded-circle account-img" src="{{ user.profile.image.url }}">
+            {% else %}
+                <img src="{% static 'images/default.png' %}" class="rounded-circle account-img" >
+            {% endif %}
+                <div class="media-body">
+                    <h2 class="account-heading">{{ user.username }}</h2>
+                    <p>First Name: {{ user.first_name }}</p>
+                    <p>Last Name: {{ user.last_name }}</p>
+                    <p>Email: {{ user.email }}</p>
+                    <p>Phone Number: {{ user.user_profile.phone }}</p>
+                    <p>Age: {{ user.user_profile.age }}</p>
+                    <p>Address: {{ user.user_profile.address }}</p>
+                    <p>About me: {{ user.user_profile.bio }}</p>
+             </div>
     </div>
+    <div class="border-top pt-3">
+     <a class="border-bottom" href="{% url 'edit_profile' %}">Edit my Profile</a>
 </div>
+{% endblock content %}
