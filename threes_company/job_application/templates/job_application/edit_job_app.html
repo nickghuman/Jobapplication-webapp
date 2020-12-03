@@ -1,4 +1,22 @@
 {% extends "job_application/base.html" %}
+{% load crispy_forms_tags %}
 {% block content %}
-    <h3>Job Edit Page</h3>
+    <h3>Job Application Form</h3>
+    <br>
+    <div class="content-section">
+        <div class="row">
+          <div class="col-sm-15 col-md-15 col-lg-9 mx-auto">
+            <div class="card card-signin my-9">
+              <div class="card-body">
+            <form method="POST">
+      <form method="POST">
+        {% csrf_token %}
+        <fieldset class="form-group">
+          {{ form|crispy }}
+        </fieldset>
+        <div class="form-group">
+          <button class="btn btn-outline-info" type="submit">Submit</button>
+        </div>
+      </form>
+    </div>
 {% endblock content %}
