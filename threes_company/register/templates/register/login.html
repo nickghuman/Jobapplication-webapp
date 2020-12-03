@@ -1,6 +1,7 @@
-{% extends "job_application/newbase.html" %}
+{% extends "job_application/base.html" %}
 {% load crispy_forms_tags %}
 {% block content %}
+{% block register %}{% endblock register %}
   <div class="container">
       <div class="row">
         <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
@@ -27,4 +28,6 @@
       </div>
     </div>
   </div>
+
 {% endblock content %}
+
