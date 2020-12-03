@@ -1,3 +1,5 @@
+{% extends "job_application/base.html" %}
+{% block content %}
 <div class ="content-selection">
     <div class="media">
         <img class="rounded-circle account-img" src="{{ user.profile.image.url }}">
@@ -7,3 +9,4 @@
         </div>
     </div>
 </div>
+{% endblock content %}
