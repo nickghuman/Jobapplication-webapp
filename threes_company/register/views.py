@@ -22,7 +22,6 @@ def register(request):
         form = UserRegisterForm(request.POST)
         if form.is_valid():
             form.save()
-           # username = form.cleaned_data.get('username')
             new_user = authenticate(username=form.cleaned_data['username'],
                                     password=form.cleaned_data['password1'],
                                     )
@@ -37,17 +36,26 @@ def register(request):
 def profile(request):
     return render(request, 'register/profile.html')
 
-
+@login_required
 def edit_profile(request):
     user = User.objects.get(username=request.user)
-    profile = User_Profile.objects.get(user=user.id)
     u_form = UserUpdateForm(request.POST or None, instance=user)
-    p_form = UserProfileForm(request.POST or None, user= request.user, instance=profile)
+    
+    # handles whether the user has or has not entered in their profile data yet
+    try:
+        profile = User_Profile.objects.get(user=user.id)
+        p_form = UserProfileForm(request.POST or None, user=request.user, instance=profile)
+    except User_Profile.DoesNotExist:
+        p_form = UserProfileForm(request.POST or None, user=request.user)
+
     if request.method =='POST':
         if u_form.is_valid() and p_form.is_valid():
+            profile = p_form.save()
+            if request.FILES:
+                profile.image = request.FILES['image']
+            profile.save()
             u_form.save()
-            p_form.save()
-            messages.success(request, f'Your account has been created! You are now able to log in')
+            messages.success(request, 'Your profile has been successfully updated!')
             return redirect('profile')
     else:
         context = {
@@ -56,13 +64,14 @@ def edit_profile(request):
         }
         return render(request, 'register/edit_profile.html', context )
 
-def create_profile(request ):
+@login_required
+def create_profile(request):
     user = User.objects.get(username = request.user)
     p_form = UserProfileForm(request.POST or None, user= request.user, initial = dict(user=user.id))
     if p_form.is_valid():
-            p_form.save()
-            messages.success(request, f'Your account has been created!')
-            return redirect('jobapp-home')
+        p_form.save()
+        messages.success(request, 'Your account has been successfully created!')
+        return redirect('jobapp-home')
     else:
         context = {
             'p_form': p_form,

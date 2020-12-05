@@ -5,23 +5,46 @@
 {% block content %}
 <div class ="content-selection">
     <div class="media">
-            {% if user.profile.image %}
-                <img class="rounded-circle account-img" src="{{ user.profile.image.url }}">
+            {% if user.user_profile.image and user.user_profile.image != 'default.jpg' %}
+                <img class="rounded-circle account-img" src="{{ user.user_profile.image.url }}" width="300" height="300">
             {% else %}
                 <img src="{% static 'images/default.png' %}" class="rounded-circle account-img" >
             {% endif %}
                 <div class="media-body">
                     <h2 class="account-heading">{{ user.username }}</h2>
-                    <p>First Name: {{ user.first_name }}</p>
-                    <p>Last Name: {{ user.last_name }}</p>
-                    <p>Email: {{ user.email }}</p>
-                    <p>Phone Number: {{ user.user_profile.phone }}</p>
-                    <p>Age: {{ user.user_profile.age }}</p>
-                    <p>Address: {{ user.user_profile.address }}</p>
-                    <p>About me: {{ user.user_profile.bio }}</p>
+                    <table>
+                      <tr>
+                        <td >First Name:&nbsp</td>
+                        <td>{{ user.first_name }}</td>
+                      </tr>
+                      <tr>
+                        <td>Last Name:&nbsp</td>
+                        <td>{{ user.last_name }}</td>
+                      </tr>
+                      <tr>
+                        <td>Email:&nbsp</td>
+                        <td>{{ user.email }}</td>
+                      </tr>
+                      <tr>
+                        <td>Phone Number:&nbsp</td>
+                        <td>{{ user.user_profile.phone }}</td>
+                      </tr>
+                      <tr>
+                        <td>Age:&nbsp</td>
+                        <td>{{ user.user_profile.age }}</td>
+                      </tr>
+                      <tr>
+                        <td>Address:&nbsp</td>
+                        <td>{{ user.user_profile.address }}</td>
+                      </tr>
+                      <tr>
+                        <td>About me:&nbsp</td>
+                        <td>{{ user.user_profile.bio }}</td>
+                      </tr>
+                    </table>
              </div>
     </div>
     <div class="border-top pt-3">
-     <a class="border-bottom" href="{% url 'edit_profile' %}">Edit my Profile</a>
+     <a class="border-bottom" href="{% url 'edit_profile' %}">Edit My Profile</a>
 </div>
 {% endblock content %}
